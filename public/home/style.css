@@ -1,0 +1,16 @@
+.jumbotron{
+    padding-top :6rem;
+    background-color: #a2d9ff;
+}
+#article{
+    background-color: #a2d9ff;
+}
+#article h2{
+    color: white;
+}
+#pricing img{
+    width: 200px;
+}
+section{
+    padding-top: 5rem;
+}
