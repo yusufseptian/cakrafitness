@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'cakrafitness',
+        'database' => 'db_cakra',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

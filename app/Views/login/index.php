@@ -24,18 +24,18 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <!-- <p class="login-box-msg">Sign in to start your session</p> -->
 
                 <?= form_open('login/cekuser', ['class' => 'formlogin']) ?>
                 <?= csrf_field(); ?>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="username" name="id_user" id="id_user" autofocus>
+                    <input type="text" class="form-control" placeholder="username" name="us_id" id="us_id" autofocus>
                     <div class="invalid-feedback errorUser">
 
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" name="user_pass" id="user_pass">
+                    <input type="password" class="form-control" placeholder="Password" name="us_password" id="us_password">
                     <div class="invalid-feedback errorPassword">
 
                     </div>
@@ -79,19 +79,19 @@
                         },
                         success: function(response) {
                             if (response.error) {
-                                if (response.error.id_user) {
-                                    $('#id_user').addClass('is-invalid')
-                                    $('.errorUser').html(response.error.id_user);
+                                if (response.error.us_id) {
+                                    $('#us_id').addClass('is-invalid')
+                                    $('.errorUser').html(response.error.us_id);
                                 } else {
-                                    $('#id_user').removeClass('is-invalid');
+                                    $('#us_id').removeClass('is-invalid');
                                     $('.errorUser').html('');
                                 }
 
-                                if (response.error.user_pass) {
-                                    $('#user_pass').addClass('is-invalid')
-                                    $('.errorPassword').html(response.error.user_pass);
+                                if (response.error.us_password) {
+                                    $('#us_password').addClass('is-invalid')
+                                    $('.errorPassword').html(response.error.us_password);
                                 } else {
-                                    $('#user_pass').removeClass('is-invalid');
+                                    $('#us_password').removeClass('is-invalid');
                                     $('.errorPassword').html('');
                                 }
                             }

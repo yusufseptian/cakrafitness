@@ -12,23 +12,27 @@ class Login extends BaseController
     {
         return view('login/index');
     }
+    public function test()
+    {
+        echo password_hash('admin1', PASSWORD_BCRYPT);
+    }
     public function cekuser()
     {
         if ($this->request->isAJAX()) {
-            $id_user = $this->request->getVar('id_user');
-            $user_pass = $this->request->getVar('user_pass');
+            $us_id = $this->request->getVar('us_id');
+            $us_password = $this->request->getVar('us_password');
 
             $validation = \config\Services::validation();
 
             $valid = $this->validate([
-                'id_user' => [
+                'us_id' => [
                     'label' => 'ID User',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
                     ]
                 ],
-                'user_pass' => [
+                'us_password' => [
                     'label' => 'Password',
                     'rules' => 'required',
                     'errors' => [
@@ -40,29 +44,29 @@ class Login extends BaseController
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'id_user' => $validation->getError('id_user'),
-                        'user_pass' => $validation->getError('user_pass')
+                        'us_id' => $validation->getError('us_id'),
+                        'us_password' => $validation->getError('us_password')
                     ]
                 ];
             } else {
                 //logika cek user
-                $query_cek_user = $this->db->query("SELECT * FROM tb_user JOIN tb_level ON level_id = users_level_id WHERE id_user = '$id_user'
+                $query_cek_user = $this->db->query("SELECT * FROM t_user JOIN t_level ON level_id = us_level_id WHERE us_id = '$us_id'
                 ");
 
                 $result = $query_cek_user->getResult();
 
                 if (count($result) > 0) {
                     $row = $query_cek_user->getRow();
-                    $password_user = $row->user_pass;
+                    $password_user = $row->us_password;
 
-                    if (password_verify($user_pass, $password_user)) {
+                    if (password_verify($us_password, $password_user)) {
                         //buat session
                         $simpan_session = [
                             'login' => true,
-                            'id_user' => $id_user,
-                            'user_name' => $row->username,
-                            'id_level' => $row->users_level_id,
-                            'namalevel' => $row->level_nama
+                            'us_id' => $us_id,
+                            'user_name' => $row->us_username,
+                            'us_level_id' => $row->us_level_id,
+                            'level_nama' => $row->level_nama
                         ];
                         $this->session->set($simpan_session);
 
@@ -74,14 +78,14 @@ class Login extends BaseController
                     } else {
                         $msg = [
                             'error' => [
-                                'user_pass' => 'Maaf Password anda salah'
+                                'us_password' => 'Maaf Password anda salah'
                             ]
                         ];
                     }
                 } else {
                     $msg =  [
                         'error' => [
-                            'id_user' => 'Maaf Id User tidak ditemukan'
+                            'us_id' => 'Maaf Id User tidak ditemukan'
                         ]
                     ];
                 }
