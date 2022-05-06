@@ -91,11 +91,19 @@ $session = \Config\Services::session();
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url('member/index'); ?>" class="nav-link">
+                        <li class="nav-item ">
+                            <a href="<?= site_url('manajemen_insidental/index'); ?>" class="nav-link ">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
-                                    Sewa Ruang Olahraga
+                                    Insidental
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('manajemen_gedung/index'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Gedung Olahraga
                                 </p>
                             </a>
                         </li>

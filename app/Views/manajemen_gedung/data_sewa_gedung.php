@@ -1,12 +1,10 @@
-<table id="datamembership" class="table table-bordered table-hover nowrap">
+<table id="datagedung" class="table table-bordered table-hover nowrap">
     <thead class="text-center">
         <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Alamat</th>
-            <th>Jenis Kelamin</th>
-            <th>Tanggal Daftar</th>
-            <th>Tanggal Habis</th>
+            <th>Tanggal Sewa</th>
+            <th>Lama Sewa</th>
             <th>Harga</th>
             <th>Aksi</th>
         </tr>
@@ -18,17 +16,15 @@
         foreach ($tampildata as $row) : ?>
             <tr class="text-center">
                 <td><?= $no++; ?></td>
-                <td><?= $row['m_nama']; ?></td>
-                <td><?= $row['m_alamat']; ?></td>
-                <td><?= $row['m_jk']; ?></td>
-                <td><?= $row['m_tgl_daftar']; ?></td>
-                <td><?= $row['m_tgl_habis']; ?></td>
+                <td><?= $row['gd_nama']; ?></td>
+                <td><?= $row['gd_tgl_sewa']; ?></td>
+                <td><?= $row['gd_lama_sewa']; ?> jam</td>
                 <td>Rp.<?= $row['harga']; ?></td>
                 <td>
-                    <button class="btn btn-info btn-sm" onclick="edit('<?= $row['m_id'] ?>')">
+                    <button class="btn btn-info btn-sm" onclick="edit('<?= $row['gd_id'] ?>')">
                         <i class="fa fa-tags"></i>
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="hapus('<?= $row['m_id'] ?>')">
+                    <button class="btn btn-danger btn-sm" onclick="hapus('<?= $row['gd_id'] ?>')">
                         <i class="fa fa-trash"></i>
                     </button>
                 </td>
@@ -38,15 +34,15 @@
 </table>
 <script>
     $(document).ready(function() {
-        $('#datamembership').DataTables();
+        $('#datagedung').DataTables();
     });
 
-    function edit(m_id) {
+    function edit(gd_id) {
         $.ajax({
             type: "post",
-            url: "<?= site_url('manajemen_membership/formedit') ?>",
+            url: "<?= site_url('manajemen_gedung/formedit') ?>",
             data: {
-                m_id: m_id
+                gd_id: gd_id
             },
             dataType: "json",
             success: function(response) {
@@ -62,10 +58,10 @@
         });
     }
 
-    function hapus(m_id) {
+    function hapus(gd_id) {
         Swal.fire({
             title: 'Hapus',
-            text: "Yakin menghapus data membership ini?",
+            text: "Yakin menghapus data gedung ini?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -76,9 +72,9 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "<?= site_url('manajemen_membership/hapus') ?>",
+                    url: "<?= site_url('manajemen_gedung/hapus') ?>",
                     data: {
-                        m_id: m_id
+                        gd_id: gd_id
                     },
                     dataType: "json",
                     success: function(response) {
@@ -88,7 +84,7 @@
                                 title: 'Berhasil',
                                 text: response.sukses
                             });
-                            dataMembership();
+                            dataGedung();
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

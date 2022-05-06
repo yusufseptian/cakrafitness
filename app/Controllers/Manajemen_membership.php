@@ -8,16 +8,11 @@ class Manajemen_membership extends BaseController
 {
     public function index()
     {
-
-
         return view('manajemen_membership/index');
     }
     public function ambildata()
     {
-        // $builder = $db->table('blogs');
-        // $builder->select('*');
-        // $builder->join('comments', 'comments.id = blogs.id');
-        // $query = $builder->get();
+
         if ($this->request->isAJAX()) {
             $mhs = new manajemen_membership_model();
             $data = [
@@ -47,14 +42,14 @@ class Manajemen_membership extends BaseController
         if ($this->request->isAJAX()) {
             $validation = \Config\Services::validation();
             $valid = $this->validate([
-                'member_nama' => [
+                'm_nama' => [
                     'label' => 'Nama',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
                     ]
                 ],
-                'member_alamat' => [
+                'm_alamat' => [
                     'label' => 'Alamat',
                     'rules' => 'required',
                     'errors' => [
@@ -65,17 +60,20 @@ class Manajemen_membership extends BaseController
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'member_nama' => $validation->getError('member_nama'),
-                        'member_alamat' => $validation->getError('member_alamat')
+                        'm_nama' => $validation->getError('m_nama'),
+                        'm_alamat' => $validation->getError('m_alamat')
                     ]
                 ];
             } else {
                 $simpandata = [
-                    'member_id' => $this->request->getVar('member_id'),
-                    'member_nama' => $this->request->getVar('member_nama'),
-                    'member_alamat' => $this->request->getVar('member_alamat'),
-                    'member_jk' => $this->request->getVar('member_jk'),
-                    'member_tgl_daftar' => $this->request->getVar('member_tgl_daftar')
+                    'm_id' => $this->request->getVar('m_id'),
+                    'm_nama' => $this->request->getVar('m_nama'),
+                    'm_alamat' => $this->request->getVar('m_alamat'),
+                    'm_jk' => $this->request->getVar('m_jk'),
+                    'm_tgl_daftar' => $this->request->getVar('m_tgl_daftar'),
+                    'm_tgl_habis' => $this->request->getVar('m_tgl_habis'),
+                    'm_harga_id'  => '1',
+                    'm_us_id' => '1'
                 ];
                 $mhs = new manajemen_membership_model();
                 $mhs->insert($simpandata);
@@ -92,17 +90,18 @@ class Manajemen_membership extends BaseController
     public function formedit()
     {
         if ($this->request->isAJAX()) {
-            $member_id = $this->request->getVar('member_id');
+            $m_id = $this->request->getVar('m_id');
 
             $mhs = new manajemen_membership_model();
-            $row = $mhs->find($member_id);
+            $row = $mhs->find($m_id);
 
             $data = [
-                'member_id' => $row['member_id'],
-                'member_nama' => $row['member_nama'],
-                'member_alamat' => $row['member_alamat'],
-                'member_jk' => $row['member_jk'],
-                'member_tgl_daftar' => $row['member_tgl_daftar'],
+                'm_id' => $row['m_id'],
+                'm_nama' => $row['m_nama'],
+                'm_alamat' => $row['m_alamat'],
+                'm_jk' => $row['m_jk'],
+                'm_tgl_daftar' => $row['m_tgl_daftar'],
+                'm_tgl_habis' => $row['m_tgl_habis'],
             ];
             $msg = [
                 'sukses' => view('manajemen_membership/edit_membership', $data)
@@ -117,15 +116,16 @@ class Manajemen_membership extends BaseController
         if ($this->request->isAJAX()) {
 
             $simpandata = [
-                'member_nama' => $this->request->getVar('member_nama'),
-                'member_alamat' => $this->request->getVar('member_alamat'),
-                'member_jk' => $this->request->getVar('member_jk'),
-                'member_tgl_daftar' => $this->request->getVar('member_tgl_daftar'),
+                'm_nama' => $this->request->getVar('m_nama'),
+                'm_alamat' => $this->request->getVar('m_alamat'),
+                'm_jk' => $this->request->getVar('m_jk'),
+                'm_tgl_daftar' => $this->request->getVar('m_tgl_daftar'),
+                'm_tgl_habis' => $this->request->getVar('m_tgl_habis')
             ];
             $mhs = new manajemen_membership_model();
 
-            $member_id = $this->request->getVar('member_id');
-            $mhs->update($member_id, $simpandata);
+            $m_id = $this->request->getVar('m_id');
+            $mhs->update($m_id, $simpandata);
 
             $msg = [
                 'sukses' => 'Data Member berhasil diubah'
@@ -138,9 +138,9 @@ class Manajemen_membership extends BaseController
     public function hapus()
     {
         if ($this->request->isAJAX()) {
-            $member_id = $this->request->getVar('member_id');
+            $m_id = $this->request->getVar('m_id');
             $mhs = new manajemen_membership_model();
-            $mhs->delete($member_id);
+            $mhs->delete($m_id);
             $msg = [
                 'sukses' => 'Data berhasil dihapus'
             ];
