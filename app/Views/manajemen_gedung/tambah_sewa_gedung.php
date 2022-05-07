@@ -32,14 +32,13 @@
                     </div>
                 </div>
             </div>
+            <div class="modal-footer justify-content-between">
+                <button type="submit" class="btn btn-primary btnsimpan">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-footer justify-content-between">
-            <button type="submit" class="btn btn-primary btnsimpan">Simpan</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        <?= form_close(); ?>
     </div>
-    <?= form_close(); ?>
-</div>
 </div>
 
 <script>

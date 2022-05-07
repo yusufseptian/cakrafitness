@@ -111,7 +111,7 @@ $session = \Config\Services::session();
                             <a href="<?= site_url('member/index'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
-                                    Pembayaran
+                                    Artikel
                                 </p>
                             </a>
                         </li>

@@ -1,16 +1,110 @@
-.jumbotron{
-    padding-top :6rem;
-    background-color: #a2d9ff;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+body{
+    line-height: 1.8;
+    color: #898fa1;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
 }
-#article{
-    background-color: #a2d9ff;
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #11245a;
 }
-#article h2{
-    color: white;
+
+a{
+    font-weight: 700;
+    transition: all 0.4s ease;
 }
-#pricing img{
-    width: 200px;
+img{
+    width: 100% ;
+}
+small{
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
 section{
-    padding-top: 5rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.navbar{
+    border-bottom:1px solid rgba(0, 0, 0, 0.31);
+}
+.logo-text{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #11245a !important;
+}
+.navbar .nav-link{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.navbar-light .navbar-nav .nav-link.active{
+    color: #a82828;
+
+}
+#Home{
+    
+    background: linear-gradient( rgba(202, 39, 28, 0.568), rgba(163, 15, 4, 0.39)),url(./jumbotron.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+#Home h1{
+    font-weight: 600;
+}
+#Home p{
+    max-width: 550px;
+    margin:17px auto;
+}
+.btn{
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 0;
+}
+
+.btn-brand{
+    background-color: #8b8585;
+    color: #fff;
+}
+.btn-brand:hover{
+    background-color: #a82828;
+    color: #fff;
+}
+.section-intro{
+    text-align: center;
+}
+.section-intro .hline{
+    width: 70px;
+    height: 2px ;
+    background-color: rgba(0, 0, 0, 0.267);
+    margin: 16px auto 0 auto;
+}
+.lingkaran{
+    display: inline-block;
+    border-radius: 50%;
+    width: 150px;
+    margin: auto;
+    height: 150px;
+    color: #fff;
+    background-color: #a82828;
+}
+.lingkaran i{
+    position: relative;
+    top: 35px;
+}
+.lingkaran img{
+    position: relative;
+    width: 100px;
+    top: 35px;
 }
