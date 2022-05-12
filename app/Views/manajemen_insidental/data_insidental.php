@@ -21,8 +21,8 @@
                 <td><?= $row['in_status']; ?></td>
                 <td>Rp.<?= $row['harga']; ?></td>
                 <td>
-                    <button class="btn btn-info btn-sm" onclick="edit('<?= $row['in_id'] ?>')">
-                        <i class="fa fa-tags"></i>
+                    <button class="btn btn-warning btn-sm" onclick="edit('<?= $row['in_id'] ?>')">
+                        <i class="fas fa-edit"></i>
                     </button>
                     <button class="btn btn-danger btn-sm" onclick="hapus('<?= $row['in_id'] ?>')">
                         <i class="fa fa-trash"></i>

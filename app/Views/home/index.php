@@ -43,11 +43,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <h1 class="text-white display-4">All progress takes place outside the comfort zone.</h1>
-                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate ipsa
-                        neque dolore
-                        totam rerum, voluptate quas omnis reiciendis culpa quia eligendi cum perferendis repellendus
-                        architecto
-                        dolorem itaque. Labore, laudantium voluptatibus.</p>
+
                     <a href="#contact" class="btn btn-brand">Contact</a>
                 </div>
             </div>

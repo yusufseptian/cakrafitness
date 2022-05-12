@@ -25,8 +25,8 @@
                 <td><?= $row['m_tgl_habis']; ?></td>
                 <td>Rp.<?= $row['harga']; ?></td>
                 <td>
-                    <button class="btn btn-info btn-sm" onclick="edit('<?= $row['m_id'] ?>')">
-                        <i class="fa fa-tags"></i>
+                    <button class="btn btn-warning btn-sm" onclick="edit('<?= $row['m_id'] ?>')">
+                        <i class="fas fa-edit"></i>
                     </button>
                     <button class="btn btn-danger btn-sm" onclick="hapus('<?= $row['m_id'] ?>')">
                         <i class="fa fa-trash"></i>
@@ -38,7 +38,12 @@
 </table>
 <script>
     $(document).ready(function() {
-        $('#datamembership').DataTables();
+        $('#datamembership').DataTables({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        });
     });
 
     function edit(m_id) {

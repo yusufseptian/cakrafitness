@@ -49,7 +49,7 @@ section{
 }
 #Home{
     
-    background: linear-gradient( rgba(202, 39, 28, 0.568), rgba(163, 15, 4, 0.39)),url(./jumbotron.jpg);
+    background: linear-gradient( rgba(26, 23, 23, 0.829), rgba(36, 34, 34, 0.692)),url(./jumbotron.jpg);
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -74,7 +74,7 @@ section{
 }
 
 .btn-brand{
-    background-color: #8b8585;
+    background-color: #11245a;
     color: #fff;
 }
 .btn-brand:hover{

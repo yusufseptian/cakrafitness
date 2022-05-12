@@ -37,6 +37,11 @@ $session = \Config\Services::session();
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="<?= site_url('login/keluar'); ?>" class="nav-link">
+                        <i class="fa fa-sign-out-alt"></i>Logout
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -60,23 +65,6 @@ $session = \Config\Services::session();
                         <a href="#" class="d-block"><?= $session->get('user_name'); ?></a>
                     </div>
                 </div>
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="info">
-                        <a href="<?= site_url('login/keluar'); ?>" class="mdi mdi-logout text-muted">Logout</a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -85,7 +73,7 @@ $session = \Config\Services::session();
                 with font-awesome or any other icon font library -->
                         <li class="nav-item ">
                             <a href="<?= site_url('manajemen_membership/index'); ?>" class="nav-link ">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Membership
                                 </p>
@@ -101,17 +89,17 @@ $session = \Config\Services::session();
                         </li>
                         <li class="nav-item">
                             <a href="<?= site_url('manajemen_gedung/index'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Gedung Olahraga
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('member/index'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
+                            <a href="<?= site_url('manajemen_harga/index'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-money-check"></i>
                                 <p>
-                                    Artikel
+                                    Daftar Layanan
                                 </p>
                             </a>
                         </li>
@@ -160,12 +148,12 @@ $session = \Config\Services::session();
     </div>
     <!-- ./wrapper -->
     <script src="<?= base_url(); ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url(); ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url(); ?>./assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <!-- jQuery -->
     <!-- Bootstrap 4 -->
-    <script src="<?= base_url(); ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url(); ?>/assets/dist/js/adminlte.min.js"></script>
+    <script src="<?= base_url(); ?>./assets/dist/js/adminlte.min.js"></script>
 
 </body>
 
