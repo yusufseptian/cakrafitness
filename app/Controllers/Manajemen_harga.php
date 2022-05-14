@@ -8,24 +8,13 @@ class Manajemen_harga extends BaseController
 {
     public function index()
     {
-        return view('manajemen_harga/index');
+        $tbl = new manajemen_harga_model();
+        $data = [
+            'tampildata' => $tbl->findAll()
+        ];
+        return view('manajemen_harga/index', $data);
     }
-    public function ambildata()
-    {
 
-        if ($this->request->isAJAX()) {
-            $tbl = new manajemen_harga_model();
-            $data = [
-                'tampildata' => $tbl->findAll()
-            ];
-            $msg = [
-                'data' => view('manajemen_harga/data_harga', $data)
-            ];
-            echo json_encode($msg);
-        } else {
-            exit('Maaf Tidak Dapat Diproses');
-        }
-    }
     public function formedit()
     {
         if ($this->request->isAJAX()) {

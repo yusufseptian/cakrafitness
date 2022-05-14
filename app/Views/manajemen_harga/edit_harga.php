@@ -55,10 +55,12 @@
                             icon: 'success',
                             title: 'Berhasil',
                             text: response.sukses
-                        })
+                        }).then(function() {
+                            location.reload();
+                            $('#modaledit').modal('hide');
+                        });
 
-                        $('#modaledit').modal('hide');
-                        dataHarga();
+
 
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

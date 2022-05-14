@@ -8,31 +8,22 @@ class Manajemen_membership extends BaseController
 {
     public function index()
     {
-        return view('manajemen_membership/index');
-    }
-    public function ambildata()
-    {
 
-        if ($this->request->isAJAX()) {
-            $mhs = new manajemen_membership_model();
-            $data = [
-                'tampildata' => $mhs->get_member()
-            ];
-            $msg = [
-                'data' => view('manajemen_membership/data_membership', $data)
-            ];
-            echo json_encode($msg);
-        } else {
-            exit('Maaf Tidak Dapat Diproses');
-        }
+        $mhs = new manajemen_membership_model();
+        $data = [
+            'tampildata' => $mhs->get_member()
+        ];
+
+        return view('manajemen_membership/index', $data);
     }
+
     public function formtambah()
     {
         if ($this->request->isAJAX()) {
-            $msg = [
+            $data = [
                 'data' => view('manajemen_membership/tambah_membership')
             ];
-            echo json_encode($msg);
+            echo json_encode($data);
         } else {
             exit('Maaf Tidak Dapat Diproses');
         }

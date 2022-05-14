@@ -18,11 +18,9 @@ $session = \Config\Services::session();
     <!-- css native -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/dist/css/layout.css">
 
-
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/plugins/sweetalert2/sweetalert2.min.css">
 
-    <script src="<?= base_url(); ?>/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script>
+    <?= $this->renderSection('css') ?>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -49,7 +47,7 @@ $session = \Config\Services::session();
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= base_url(); ?>/assets/index3.html" class="brand-link">
+            <a href="<?= base_url(); ?>" class="brand-link">
                 <img src="<?= base_url(); ?>/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Cakra Sport Club</span>
             </a>
@@ -147,14 +145,14 @@ $session = \Config\Services::session();
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script src="<?= base_url(); ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url(); ?>./assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- jQuery -->
+    <script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?= base_url(); ?>./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url(); ?>./assets/dist/js/adminlte.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/dist/js/adminlte.min.js"></script>
 
+    <?= $this->renderSection('script') ?>
 </body>
 
 </html>

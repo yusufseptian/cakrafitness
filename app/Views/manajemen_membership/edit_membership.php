@@ -52,6 +52,7 @@
                 <?= form_close(); ?>
             </div>
         </div>
+
         <script>
             $(document).ready(function() {
                 $('.formMembership').submit(function(e) {
@@ -75,10 +76,12 @@
                                 icon: 'success',
                                 title: 'Berhasil',
                                 text: response.sukses
-                            })
+                            }).then(function() {
+                                location.reload();
+                                $('#modaledit').modal('hide');
+                            });
 
-                            $('#modaledit').modal('hide');
-                            dataMembership();
+                            // dataMembership();
 
                         },
                         error: function(xhr, ajaxOptions, thrownError) {

@@ -8,24 +8,13 @@ class Manajemen_gedung extends BaseController
 {
     public function index()
     {
-        return view('manajemen_gedung/index');
+        $tbl = new manajemen_gedung_model();
+        $data = [
+            'tampildata' => $tbl->get_data()
+        ];
+        return view('manajemen_gedung/index', $data);
     }
-    public function ambildata()
-    {
 
-        if ($this->request->isAJAX()) {
-            $tbl = new manajemen_gedung_model();
-            $data = [
-                'tampildata' => $tbl->get_data()
-            ];
-            $msg = [
-                'data' => view('manajemen_gedung/data_sewa_gedung', $data)
-            ];
-            echo json_encode($msg);
-        } else {
-            exit('Maaf Tidak Dapat Diproses');
-        }
-    }
     public function formtambah()
     {
         if ($this->request->isAJAX()) {

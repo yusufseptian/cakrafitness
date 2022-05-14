@@ -8,23 +8,12 @@ class Manajemen_insidental extends BaseController
 {
     public function index()
     {
-        return view('manajemen_insidental/index');
-    }
-    public function ambildata()
-    {
+        $tbl = new manajemen_insidental_model();
+        $data = [
+            'tampildata' => $tbl->get_data()
+        ];
 
-        if ($this->request->isAJAX()) {
-            $tbl = new manajemen_insidental_model();
-            $data = [
-                'tampildata' => $tbl->get_data()
-            ];
-            $msg = [
-                'data' => view('manajemen_insidental/data_insidental', $data)
-            ];
-            echo json_encode($msg);
-        } else {
-            exit('Maaf Tidak Dapat Diproses');
-        }
+        return view('manajemen_insidental/index', $data);
     }
     public function formtambah()
     {

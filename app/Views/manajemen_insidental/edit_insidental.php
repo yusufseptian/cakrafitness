@@ -64,11 +64,10 @@
                             icon: 'success',
                             title: 'Berhasil',
                             text: response.sukses
-                        })
-
-                        $('#modaledit').modal('hide');
-                        dataInsidental();
-
+                        }).then(function() {
+                            location.reload();
+                            $('#modaledit').modal('hide');
+                        });
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
                         alert(xhr.status + "\n" + xhr.responseText + "\n" +

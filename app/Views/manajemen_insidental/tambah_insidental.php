@@ -78,9 +78,10 @@
                             icon: 'success',
                             title: 'Berhasil',
                             text: response.sukses
-                        })
-                        $('#modaltambah').modal('hide');
-                        dataInsidental();
+                        }).then(function() {
+                            location.reload();
+                            $('#modaltambah').modal('hide');
+                        });
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {

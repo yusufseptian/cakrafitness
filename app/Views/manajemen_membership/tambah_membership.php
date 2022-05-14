@@ -99,9 +99,10 @@
                                 icon: 'success',
                                 title: 'Berhasil',
                                 text: response.sukses
-                            })
-                            $('#modaltambah').modal('hide');
-                            dataMembership();
+                            }).then(function() {
+                                location.reload();
+                                $('#modaltambah').modal('hide');
+                            });
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
