@@ -24,6 +24,7 @@ Manajemen Data Sewa Gedung
                     <th>Tanggal Sewa</th>
                     <th>Lama Sewa</th>
                     <th>Harga</th>
+                    <th>Total Harga</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@ Manajemen Data Sewa Gedung
                         <td><?= $row['gd_tgl_sewa']; ?></td>
                         <td><?= $row['gd_lama_sewa']; ?> jam</td>
                         <td>Rp.<?= $row['harga']; ?></td>
+                        <td>Rp.<?= $row['gd_total_harga']; ?></td>
                         <td>
                             <button class="btn btn-warning btn-sm" onclick="edit('<?= $row['gd_id'] ?>')">
                                 <i class="fas fa-edit"></i>

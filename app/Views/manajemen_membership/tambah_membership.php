@@ -14,6 +14,7 @@
                         <label for="" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
                             <input type="hidden" class="form-control " name="m_id" id="m_id">
+                            <input type="hidden" class="form-control " name="tm_id" id="tm_id">
                             <input type="text" class="form-control " name="m_nama" id="m_nama">
                             <div class="invalid-feedback error-nama ">
                             </div>
@@ -41,12 +42,6 @@
                         <label for="" class="col-sm-2 col-form-label">Tanggal Daftar</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" name="m_tgl_daftar" id="m_tgl_daftar">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="" class="col-sm-2 col-form-label">Tanggal Habis</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="m_tgl_habis" id="m_tgl_habis">
                         </div>
                     </div>
                 </div>

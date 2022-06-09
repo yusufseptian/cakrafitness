@@ -19,14 +19,14 @@ class Login extends BaseController
     public function cekuser()
     {
         if ($this->request->isAJAX()) {
-            $us_id = $this->request->getVar('us_id');
+            $us_username = $this->request->getVar('us_username');
             $us_password = $this->request->getVar('us_password');
 
             $validation = \config\Services::validation();
 
             $valid = $this->validate([
-                'us_id' => [
-                    'label' => 'ID User',
+                'us_username' => [
+                    'label' => 'Username',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
@@ -44,13 +44,13 @@ class Login extends BaseController
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'us_id' => $validation->getError('us_id'),
+                        'us_username' => $validation->getError('us_username'),
                         'us_password' => $validation->getError('us_password')
                     ]
                 ];
             } else {
                 //logika cek user
-                $query_cek_user = $this->db->query("SELECT * FROM t_user JOIN t_level ON level_id = us_level_id WHERE us_id = '$us_id'
+                $query_cek_user = $this->db->query("SELECT * FROM t_user JOIN t_level ON level_id = us_level_id WHERE us_username = '$us_username'
                 ");
 
                 $result = $query_cek_user->getResult();
@@ -63,7 +63,7 @@ class Login extends BaseController
                         //buat session
                         $simpan_session = [
                             'login' => true,
-                            'us_id' => $us_id,
+                            'us_id' => $row->us_id,
                             'user_name' => $row->us_username,
                             'us_level_id' => $row->us_level_id,
                             'level_nama' => $row->level_nama
@@ -85,7 +85,7 @@ class Login extends BaseController
                 } else {
                     $msg =  [
                         'error' => [
-                            'us_id' => 'Maaf Id User tidak ditemukan'
+                            'us_username' => 'Maaf Username tidak ditemukan'
                         ]
                     ];
                 }

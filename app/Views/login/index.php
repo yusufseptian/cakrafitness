@@ -15,45 +15,52 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/dist/css/adminlte.min.css">
 </head>
+<div class="hold-transition login-page">
+<div class="login-box">
+      <div class="card">
+    <div class="card-body login-card-body">
+  <div class="login-logo">
+    <a href="<?= base_url(); ?>">Cakra Sport Club</a>
+  </div>
+  <!-- /.login-logo -->
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="<?= base_url(); ?>">Cakra Sport Club</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <!-- <p class="login-box-msg">Sign in to start your session</p> -->
-
-                <?= form_open('login/cekuser', ['class' => 'formlogin']) ?>
-                <?= csrf_field(); ?>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="username" name="us_id" id="us_id" autofocus>
-                    <div class="invalid-feedback errorUser">
-
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" name="us_password" id="us_password">
-                    <div class="invalid-feedback errorPassword">
-
-                    </div>
-                </div>
-                <div class="row">
-
-                    <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btnlogin">Login</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <?= form_close(); ?>
+        <?= form_open('login/cekuser', ['class' => 'formlogin']) ?>
+        <?= csrf_field(); ?>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="username" name="us_username" id="us_username" autofocus>
+            <div class="invalid-feedback errorUser">                
             </div>
+            <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
         </div>
-        <!-- /.login-box -->
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" name="us_password" id="us_password">
+            <div class="invalid-feedback errorPassword">
+            </div>
+            <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary btn-block btnlogin">Login</button>
+        </div>
+        <!-- /.col -->
+        </div>
+        <?= form_close(); ?>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
-        <!-- jQuery -->
+<!-- jQuery -->
         <script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="<?= base_url(); ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -79,11 +86,11 @@
                         },
                         success: function(response) {
                             if (response.error) {
-                                if (response.error.us_id) {
-                                    $('#us_id').addClass('is-invalid')
-                                    $('.errorUser').html(response.error.us_id);
+                                if (response.error.us_username) {
+                                    $('#us_username').addClass('is-invalid')
+                                    $('.errorUser').html(response.error.us_username);
                                 } else {
-                                    $('#us_id').removeClass('is-invalid');
+                                    $('#us_username').removeClass('is-invalid');
                                     $('.errorUser').html('');
                                 }
 

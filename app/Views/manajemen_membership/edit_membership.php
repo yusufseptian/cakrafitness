@@ -38,12 +38,6 @@
                             <input type="date" class="form-control" name="m_tgl_daftar" id="m_tgl_daftar" value="<?= $m_tgl_daftar ?>">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" class="col-sm-2 col-form-label">Tanggal Habis</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="m_tgl_habis" id="m_tgl_habis" value="<?= $m_tgl_habis ?>">
-                        </div>
-                    </div>
                     <div class="modal-footer justify-content-between">
                         <button type="submit" class="btn btn-primary btnsimpan">Update</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

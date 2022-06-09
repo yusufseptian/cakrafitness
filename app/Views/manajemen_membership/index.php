@@ -24,6 +24,7 @@ Manajemen Data Membership
                     <th>Tanggal Daftar</th>
                     <th>Tanggal Habis</th>
                     <th>Harga</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@ Manajemen Data Membership
                         <td><?= $row['m_tgl_daftar']; ?></td>
                         <td><?= $row['m_tgl_habis']; ?></td>
                         <td>Rp.<?= $row['harga']; ?></td>
+                        <td><?= $row['m_status']; ?></td>
                         <td>
                             <button class="btn btn-warning btn-sm" onclick="edit('<?= $row['m_id'] ?>')">
                                 <i class="fas fa-edit"></i>

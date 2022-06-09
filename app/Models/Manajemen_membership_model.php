@@ -16,6 +16,7 @@ class manajemen_membership_model extends Model
         'm_tgl_daftar',
         'm_tgl_habis',
         'm_harga_id',
+        'm_status',
         'm_us_id'
     ];
 

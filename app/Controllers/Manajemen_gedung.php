@@ -29,6 +29,11 @@ class Manajemen_gedung extends BaseController
     public function simpandata()
     {
         if ($this->request->isAJAX()) {
+            $tbl = new manajemen_gedung_model();
+            $gd_lama_sewa = $this->request->getVar('gd_lama_sewa');
+            $gd_harga = $tbl->get_data();
+
+            $gd_total_harga = $gd_harga['harga'] * $gd_lama_sewa;
             $validation = \Config\Services::validation();
             $valid = $this->validate([
                 'gd_nama' => [
@@ -52,6 +57,7 @@ class Manajemen_gedung extends BaseController
                     'gd_tgl_sewa' => $this->request->getVar('gd_tgl_sewa'),
                     'gd_lama_sewa' => $this->request->getVar('gd_lama_sewa'),
                     'gd_harga_id'  => '2',
+                    'gd_harga_total' => $gd_total_harga,
                     'gd_us_id' => '1'
                 ];
                 $tbl = new manajemen_gedung_model();

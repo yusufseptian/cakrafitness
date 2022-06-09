@@ -6,6 +6,6 @@ class Layout_admin extends BaseController
 {
     public function index()
     {
-        return view('layout_admin/main');
+        return view('layout_admin/dashboard');
     }
 }

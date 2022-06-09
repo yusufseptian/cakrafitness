@@ -70,6 +70,14 @@ $session = \Config\Services::session();
                         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                         <li class="nav-item ">
+                            <a href="<?= site_url('layout_admin/index'); ?>" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
                             <a href="<?= site_url('manajemen_membership/index'); ?>" class="nav-link ">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
@@ -89,7 +97,7 @@ $session = \Config\Services::session();
                             <a href="<?= site_url('manajemen_gedung/index'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
-                                    Gedung Olahraga
+                                    Sewa Gedung
                                 </p>
                             </a>
                         </li>
@@ -97,7 +105,15 @@ $session = \Config\Services::session();
                             <a href="<?= site_url('manajemen_harga/index'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-money-check"></i>
                                 <p>
-                                    Daftar Layanan
+                                    Layanan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('manajemen_transaksi/index'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-money-check"></i>
+                                <p>
+                                    Transaksi
                                 </p>
                             </a>
                         </li>
@@ -125,17 +141,15 @@ $session = \Config\Services::session();
 
             <!-- Main content -->
             <section class="content">
+                
                 <?= $this->renderSection('content'); ?>
             </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <footer class="main-footer text-center">
+            <strong>Copyright &copy; 2022 Cakra Sport Club</a>.</strong> Develope By Muhammad Yusuf Septian
         </footer>
 
         <!-- Control Sidebar -->
